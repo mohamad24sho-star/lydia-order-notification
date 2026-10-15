@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: lydia-orders
+    runtime: node
+    plan: starter
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: BASE_URL
+        sync: false
+      - key: ADMIN_PIN
+        sync: false
+      - key: ADMIN_SESSION_SECRET
+        generateValue: true
+      - key: VAPID_SUBJECT
+        value: mailto:admin@example.com
+      - key: VAPID_PUBLIC_KEY
+        sync: false
+      - key: VAPID_PRIVATE_KEY
+        sync: false

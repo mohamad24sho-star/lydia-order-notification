@@ -1,0 +1,14 @@
+{
+  "name": "Lydia — متابعة الطلبات",
+  "short_name": "Lydia",
+  "description": "تابع طلبك واستقبل تنبيه الجاهزية",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f5ff",
+  "theme_color": "#6d4aff",
+  "lang": "ar",
+  "dir": "rtl",
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

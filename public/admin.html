@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#6d4aff"><title>Lydia — لوحة المطعم</title><link rel="stylesheet" href="/styles.css"></head>
+<body>
+<header class="topbar"><a class="brand" href="/"><span class="mark">L</span><span>Lydia</span></a><span class="tag">لوحة المطعم</span></header>
+<main class="admin-main">
+  <section class="hero admin-hero"><div class="eyebrow">LYDIA MANAGEMENT</div><h1>إدارة الطلبات</h1><p>أنشئ الطلب، شارك QR مع الزبون، ثم غيّر الحالة لإرسال التنبيه فورًا.</p></section>
+  <section class="card login-card" id="loginCard"><h2>دخول المشرف</h2><p class="sub">أدخل رمز الإدارة الذي ظهر لك عند إعداد المشروع.</p><form id="loginForm"><label for="pin">رمز الدخول</label><input id="pin" type="password" required autocomplete="current-password" placeholder="رمز المشرف"><button class="primary" type="submit">تسجيل الدخول</button></form></section>
+  <div id="dashboard" class="hidden">
+    <section class="card create-card"><div><h2>إنشاء طلب جديد</h2><p class="sub">يمكنك ترك رقم الطلب فارغًا ليُنشئ Lydia رقمًا تلقائيًا.</p></div>
+      <form id="createForm" class="create-form">
+        <div><label for="newId">رقم الطلب (اختياري)</label><input id="newId" maxlength="32" placeholder="مثال: 125"></div>
+        <div><label for="newName">اسم الزبون (اختياري)</label><input id="newName" maxlength="80" placeholder="اسم الزبون"></div>
+        <button class="primary" type="submit">＋ إنشاء الطلب</button>
+      </form>
+    </section>
+    <section class="orders-heading"><h2>الطلبات</h2><button class="secondary small" id="refreshBtn">تحديث القائمة</button></section>
+    <div id="ordersList" class="orders-list"><div class="empty">جارٍ تحميل الطلبات…</div></div>
+    <button class="quiet logout" id="logoutBtn">تسجيل الخروج</button>
+  </div>
+</main>
+<footer>© Lydia — لوحة إدارة الطلبات</footer>
+<div class="toast" id="toast" role="status"></div>
+<script src="/admin.js"></script>
+</body></html>

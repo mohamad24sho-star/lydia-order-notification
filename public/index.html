@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#6d4aff"><title>Lydia — متابعة طلبك</title>
+  <link rel="manifest" href="/manifest.webmanifest"><link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="/"><span class="mark">L</span><span>Lydia</span></a><span class="tag">استلام أذكى، انتظار أقل</span></header>
+  <main>
+    <section class="hero"><div class="eyebrow">أهلاً بك في LYDIA</div><h1>طلبك جاهز، بدون انتظار</h1><p>تابع طلبك من هاتفك. سنعرض رسالة كبيرة ونصدر رنينًا ونستخدم الاهتزاز عندما يصبح طلبك جاهزًا، وفقًا لدعم جهازك ومتصفحك.</p></section>
+    <div class="layout">
+      <section class="card form-card">
+        <h2>تابع طلبك</h2><p class="sub">أدخل رقم الطلب الموجود على الإيصال، أو امسح رمز QR الخاص بطلبك.</p>
+        <label for="customer">اسمك (اختياري)</label><input id="customer" maxlength="80" placeholder="مثال: سارة" autocomplete="name">
+        <label for="order">رقم الطلب</label><input id="order" maxlength="32" inputmode="text" placeholder="مثال: 024" autocomplete="off">
+        <button class="primary" id="trackBtn">متابعة حالة الطلب</button>
+        <button class="secondary" id="enableBtn">🔔 تفعيل الرنين وإشعارات الخلفية</button>
+        <p class="hint" id="hint">اسمح بالصوت والإشعارات عند طلب المتصفح. تعمل إشعارات الخلفية عبر HTTPS وعلى المتصفحات المدعومة.</p>
+      </section>
+      <section class="card status-card">
+        <div class="status-head"><h2>حالة طلبك</h2><span class="pill" id="statusPill">بانتظار رقم الطلب</span></div>
+        <div class="order-number">رقم الطلب</div><div class="order-id" id="orderLabel">—</div>
+        <div class="progress">
+          <div class="step done" id="stepReceived"><div class="dot">✓</div><span>تم الاستلام</span></div>
+          <div class="step" id="stepPrep"><div class="dot">2</div><span>قيد التحضير</span></div>
+          <div class="step" id="stepReady"><div class="dot">✓</div><span>جاهز للاستلام</span></div>
+        </div>
+        <div class="notice"><div class="notice-icon" id="noticeIcon">📦</div><div><strong id="noticeTitle">أدخل رقم طلبك أولًا</strong><span id="noticeText">ستظهر حالة طلبك هنا، وسننبّهك عند الجاهزية.</span></div></div>
+        <button class="secondary hidden" id="stopBtn">إيقاف الرنين والاهتزاز</button>
+      </section>
+    </div>
+    <section class="features">
+      <div class="feature"><div class="feature-emoji">📱</div><div><strong>متابعة مباشرة</strong><span>حالة الطلب تتحدّث فورًا عندما يحدّثها المطعم.</span></div></div>
+      <div class="feature"><div class="feature-emoji">🔔</div><div><strong>تنبيه عند الجاهزية</strong><span>رسالة على الشاشة ورنين واهتزاز حسب إمكانات الجهاز.</span></div></div>
+      <div class="feature"><div class="feature-emoji">⚡</div><div><strong>سهل الاستخدام</strong><span>واجهة عربية مصممة للهاتف والكمبيوتر.</span></div></div>
+    </section>
+  </main>
+  <footer>© Lydia — نظام متابعة وتنبيه الطلبات</footer>
+  <div class="overlay" id="readyOverlay" role="alertdialog" aria-modal="true" aria-labelledby="popupTitle">
+    <div class="popup"><div class="bell" aria-hidden="true">🔔</div><h2 id="popupTitle">طلبك جاهز! 🎉</h2>
+      <p id="popupMessage">تفضل إلى نقطة الاستلام. طلبك أصبح جاهزًا الآن.</p>
+      <div class="pickup">رقم طلبك<strong id="popupOrder">—</strong></div>
+      <button class="primary" id="ackBtn">حسنًا، سأستلمه</button><button class="quiet" id="silenceBtn">إيقاف الرنين والاهتزاز</button>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="/socket.io/socket.io.js"></script><script src="/customer.js"></script>
+</body></html>
